@@ -3,11 +3,11 @@ using static System.Console;
 
 Clear();
 
-
+//------------------------------------------------------------------------------------------------------
 //Задача 25
 //Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
 
-/*
+
 try
 {
     Write("Введите число A: ");
@@ -17,7 +17,7 @@ try
 
     double DegreeNumber = GetFactNumbers(A, B);
 
-    WriteLine($"{A} в степени {B}: {DegreeNumber}");
+    WriteLine($"{A} в степени {B} = {DegreeNumber}");
 }
 catch (OverflowException)
 {
@@ -37,17 +37,15 @@ int GetFactNumbers(int a, int b)
     }
     return fact;
 }
-*/
+
 //------------------------------------------------------
 // Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
 
 /*
-Clear();
 
 int GetSumNumbers(int number)
 {
-    number = Math.Abs(number);
-    int lenghtNum = number.ToString().Length;
+    number = (number<0) ? number*(-1) : number;
 
     int sum = 0;
     while (number > 0)
@@ -80,23 +78,42 @@ catch (FormatException)
 //-----------------------------------------------------------------------------------
 
 //Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
-
-int[] GetRandomArray(int size)
+/*
+int[] GetRandomArray(int size, int min, int max)
 {
     int[] array = new int[size];
     for (int i = 0; i < size; i++)
     {
-        array[i] = new Random().Next(0, 100);
+        array[i] = new Random().Next(min, max+1);
     }
     return array;
 }
+void PrintArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Write(array[i] + " ");
+    }
+}
 
-Write("Введите кол-во элементов массива: ");
+
 try
 {
+    Write("Введите кол-во элементов массива: ");
     int N = Convert.ToInt32(ReadLine());
-    int[] ArrayBinar = GetRandomArray(N);
 
+    Write("Введите Минимальное значение массива: ");
+    int min = Convert.ToInt32(ReadLine());
+    
+    Write("Введите Максимальное значение массива: ");
+    int max = Convert.ToInt32(ReadLine());
+    
+    int[] ArrayBinar = GetRandomArray(N, min, max);
+
+    WriteLine("Вариант вывода 1: ");
+    PrintArray(ArrayBinar);
+    
+    WriteLine("\n\r" + "Вариант вывода 2: ");
     WriteLine($"[{String.Join(",", ArrayBinar)}]");
 
 }
@@ -112,3 +129,4 @@ catch
 {
     Write("Ошибка выполнения!");
 }
+*/
